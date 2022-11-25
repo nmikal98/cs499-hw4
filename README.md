@@ -37,4 +37,4 @@ kubectl get svc
 
 ## scale deployment
 
-kubectl scale deployment NAME --replicas NUMBERkubectl scale deployment frontend --replicas=3
+kubectl scale deployment NAME --replicas NUMBER
