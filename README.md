@@ -38,3 +38,14 @@ kubectl get svc
 ## scale deployment
 
 kubectl scale deployment NAME --replicas NUMBER
+
+
+## WRK
+
+git clone https://github.com/wg/wrk.git
+
+cd wrk
+
+make -j
+
+./wrk -t2 -c5 -d5s --timeout 2s http://node1/
