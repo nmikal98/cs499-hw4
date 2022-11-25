@@ -5,13 +5,13 @@
 
 kubectl create deployment frontend --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- frontend
 
-kubectl create deployment profile --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- profile
+kubectl create deployment profile --image=hvolos01/hotel_app_profile_single_node_memdb:latest -- profile
 
-kubectl create deployment search --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- search
+kubectl create deployment search --image=hvolos01/hotel_app_search_single_node_memdb:latest -- search
 
-kubectl create deployment geo --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- geo
+kubectl create deployment geo --image=hvolos01/hotel_app_geo_single_node_memdb:latest -- geo
 
-kubectl create deployment rate --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- rate
+kubectl create deployment rate --image=hvolos01/hotel_app_rate_single_node_memdb:latest -- rate
 
 ## watch deployment events
 
