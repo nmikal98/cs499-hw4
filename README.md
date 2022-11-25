@@ -48,4 +48,4 @@ cd wrk
 
 make -j
 
-./wrk -t2 -c5 -d5s --timeout 2s http://node1/
+./wrk -t2 -c5 -d5s --timeout 2s http://kube1:3xxxx
