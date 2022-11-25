@@ -34,3 +34,7 @@ kubectl expose deployment frontend --type=NodePort --port 8080
 ## Check the port that was allocated:
 
 kubectl get svc
+
+## scale deployment
+
+kubectl scale deployment NAME --replicas NUMBERkubectl scale deployment frontend --replicas=3
