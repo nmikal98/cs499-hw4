@@ -1,13 +1,28 @@
-# cs499-h4
+# cs499-hw4
 
-### Install kompose tool
 
-curl -L https://github.com/kubernetes/kompose/releases/download/v1.26.0/kompose-linux-amd64 -o kompose
-chmod +x kompose
-sudo mv ./kompose /usr/local/bin/kompose
+## Deploy app (using images from DockerHub)
 
-### Convert docker-compose.yml to kubernetes confirutation files and run pods
+kubectl create deployment frontend --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- frontend
+kubectl create deployment profile --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- profile
+kubectl create deployment search --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- search
+kubectl create deployment geo --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- geo
+kubectl create deployment rate --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- rate
 
-kompose convert
+## watch deployment events
 
-kubectl apply -f frontend-service.yaml,geo-service.yaml,jaeger-service.yaml,profile-service.yaml,rate-service.yaml,search-service.yaml,frontend-deployment.yaml,geo-deployment.yaml,jaeger-deployment.yaml,profile-deployment.yaml,rate-deployment.yaml,search-deployment.yaml
+kubectl get deploy -w
+
+## Expose each deployment, specifying the right port:
+
+kubectl expose deployment profile --port 8081
+kubectl expose deployment search --port 8082
+kubectl expose deployment geo --port 8083
+kubectl expose deployment rate --port 8084
+
+## Create a NodePort service for the Web UI:
+
+kubectl expose deployment frontend --type=NodePort --port 8080 
+
+## Check the port that was allocated:
+kubectl get svc
