@@ -20,8 +20,11 @@ kubectl get deploy -w
 ## Expose each deployment, specifying the right port:
 
 kubectl expose deployment profile --port 8081
+
 kubectl expose deployment search --port 8082
+
 kubectl expose deployment geo --port 8083
+
 kubectl expose deployment rate --port 8084
 
 ## Create a NodePort service for the Web UI:
@@ -29,4 +32,5 @@ kubectl expose deployment rate --port 8084
 kubectl expose deployment frontend --type=NodePort --port 8080 
 
 ## Check the port that was allocated:
+
 kubectl get svc
