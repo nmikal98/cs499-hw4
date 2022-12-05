@@ -53,3 +53,7 @@ make -j
 ![](/Img/Latency.png)
 
 ![](/Img/Troughput.png)
+
+
+we can see that latency decreaces and throuput increases with uncreasing number of pods. This is expected since we have more resources to serve our requests.
+With larer number of pods we notice more stable response times, this could be due to networking overheads. If the load is not too large a bigger amount of pods will no increace the performace.
