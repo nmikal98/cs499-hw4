@@ -1,6 +1,5 @@
 # cs499-hw4
 
-
 ## Deploy app (using images from DockerHub)
 
 kubectl create deployment frontend --image=hvolos01/hotel_app_frontend_single_node_memdb:latest -- frontend
@@ -29,7 +28,7 @@ kubectl expose deployment rate --port 8084
 
 ## Create a NodePort service for the Web UI:
 
-kubectl expose deployment frontend --type=NodePort --port 8080 
+kubectl expose deployment frontend --type=NodePort --port 8080
 
 ## Check the port that was allocated:
 
@@ -38,7 +37,6 @@ kubectl get svc
 ## scale deployment
 
 kubectl scale deployment NAME --replicas NUMBER
-
 
 ## WRK
 
@@ -49,3 +47,9 @@ cd wrk
 make -j
 
 ./wrk -t2 -c5 -d5s --timeout 2s http://kube1:3xxxx
+
+## Results
+
+![](/Img/Latency.png)
+
+![](/Img/Troughput.png)
